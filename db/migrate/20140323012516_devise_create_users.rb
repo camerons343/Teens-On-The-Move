@@ -1,16 +1,24 @@
 class DeviseCreateUsers < ActiveRecord::Migration
+  def migrate(direction)
+	super
+	# Create a default user
+	if direction == :up
+		admin = User.new(
+			email: 'camerons343@gmail.com',
+			password: 'camscott'
+		   )
+			admin.save!
+		end
+	end
   def change
     create_table(:users) do |t|
-	  t.string :first_name
-	  t.string :last_name
-	  t.string :profile_name
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      ##t.string   :reset_password_token
+      ##t.datetime :reset_password_sent_at
 
       ## Rememberable
       t.datetime :remember_created_at
@@ -38,6 +46,5 @@ class DeviseCreateUsers < ActiveRecord::Migration
     end
 
     add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
   end
 end

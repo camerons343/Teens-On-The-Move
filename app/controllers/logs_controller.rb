@@ -1,4 +1,5 @@
 class LogsController < ApplicationController
+  load_and_authorize_resource only: [:edit, :update, :destroy]
   before_action :set_log, only: [:show, :edit, :update, :destroy]
   # GET /logs
   # GET /logs.json
