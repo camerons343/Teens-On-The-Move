@@ -1,0 +1,18 @@
+<div class="page-header">
+	<h1>Total For All Clases</h1>
+</div>
+
+
+<%= link_to 'Show All Logs', logs_path, class: "btn btn-warning pull-left", style: "margin-right:10px;" %>
+<div class="sign_in/out">
+	<% if user_signed_in? %>
+		<%= button_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %> 
+	<% else %>
+		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
+	<% end %>
+</div>
+<div class="container">
+ <% @period_time.each do |time| %>
+    <div><b><%= time[0] %></b> <%= time[1] %></div>
+<% end %>
+</div>

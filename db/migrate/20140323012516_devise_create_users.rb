@@ -5,7 +5,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 	if direction == :up
 		admin = User.new(
 			email: 'camerons343@gmail.com',
-			password: 'camscott'
+			password: 'camscott',
+			role: 'admin',
 		   )
 			admin.save!
 		end
@@ -16,6 +17,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+	  ## Roles
+	  t.string :role,				null: false, default: ""
+	  
       ## Recoverable
       ##t.string   :reset_password_token
       ##t.datetime :reset_password_sent_at
