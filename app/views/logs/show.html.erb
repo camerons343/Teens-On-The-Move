@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @log.name %>
+</p>
+
+<p>
+  <strong>Student number:</strong>
+  <%= @log.student_number %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @log.time %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @log.activity %>
+</p>
+<p>
+	<strong>School Activity:</strong>
+	<%= @log.school_activity %>
+</p>
+<p>
+	<strong>Adult Name:</strong>
+	<%= @log.adult %>
+</p>
+
+
+<%= link_to 'Edit', edit_log_path(@log), class: "btn btn-warning" %>
+<%= link_to 'Back', logs_path, class: "btn btn-danger", style: "margin-left:2%;" %>

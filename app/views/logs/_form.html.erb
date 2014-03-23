@@ -1,0 +1,45 @@
+<%= form_for(@log) do |f| %>
+  <% if @log.errors.any? %>
+    <div id="error_explanation" class="bg-warning">
+      <h2 class="bg-danger"><%= pluralize(@log.errors.count, "error") %> prohibited this log from being saved:</h2>
+
+      <ul>
+      <% @log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>: <strong>Last, First</strong><br>
+    <%= f.text_field :name, class: "form-group form-control", style: "width:25%" %>
+  </div>
+  <div class="field">
+    <%= f.label :student_number %><br>
+    <%= f.text_field :student_number, class: "form-group form-control", style: "width:25%" %>
+  </div>
+  <div class="field">
+	<%= f.label :period %><br>
+	<%= f.select :period, ['1 Dungey','2 Dungey','3 Dungey','4 Dungey','5 Dungey','6 Dungey','','1 Huston','2 Huston','3 Huston','4 Huston','5 Huston','6 Huston','','1 Richard/Yriarte','2 Richard','3 Richard','4 Richard','5 Richard','6 Richard','7 Richard/Yriarte','','7 Napier'], {}, { :class => 'form-control', :style => 'width:25%; margin-bottom:12px;' } %>
+  </div>
+  <div class="field">
+    <%= f.label :time %>: <b>Minutes</b><br>
+    <%= f.text_field :time, class: "form-group form-control", style: "width:25%" %>
+  </div>
+  <div class="field">
+    <%= f.label :activity %><br>
+    <%= f.text_field :activity, class: "form-group form-control", style: "width:25%" %>
+  </div>
+  <div class="field">
+	<%= f.label :school_activity %><br>
+	<%= f.select :school_activity, ['Yes','No'], {}, { :class => 'form-control', :style => 'width:25%; margin-bottom:12px;' } %>
+  </div>
+  <div class="field">
+	<%= f.label :adult %> <strong>Name</strong><br>
+	<%= f.text_field :adult, class: "form-group form-control", style: "width:25%;" %>
+  </div>
+  <div class="actions" style="float:left;">
+    <%= f.submit 'Log-in', :class=> 'btn btn-success' %>
+  </div>
+<% end %>
