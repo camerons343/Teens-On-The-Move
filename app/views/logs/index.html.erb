@@ -22,7 +22,7 @@
 	  <th><center>School Related</center></th>
       <th></th>
 	  <th></th>
-      <th><center><% if user_signed_in? %><%= @logs.count %><%= button_to 'Delete All', delete_all_logs_path, method: :delete, :onclick => "return confirm( 'Are you sure you want to delete all logs? This is not reversible!' )", class: "btn btn-danger" %><% end %></center></th>
+      <th><center><% if user_signed_in? %><%= @logs.count %> log-ins<%= button_to 'Delete All', delete_all_logs_path, method: :delete, :onclick => "return confirm( 'Are you sure you want to delete all log-ins? This is not reversible!' )", class: "btn btn-danger" %><% end %></center></th>
     </tr>
   </thead>
   

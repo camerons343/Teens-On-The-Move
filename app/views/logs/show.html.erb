@@ -1,36 +1,33 @@
-<p>
-  <strong>Name:</strong>
-  <%= @log.name %>
-</p>
-
-<p>
-  <strong>Student number:</strong>
-  <%= @log.student_number %>
-</p>
-
-<p>
-  <strong>Period:</strong>
-  <%= @log.period %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @log.time %>
-</p>
-
-<p>
-  <strong>Activity:</strong>
-  <%= @log.activity %>
-</p>
-<p>
-	<strong>School Activity:</strong>
-	<%= @log.school_activity %>
-</p>
-<p>
-	<strong>Adult Name:</strong>
-	<%= @log.adult %>
-</p>
-
+<ul class="list-group">
+	<li class="list-group-item" style="width:25%;">
+		<strong>Name:</strong>
+		<%= @log.name %>
+	</li>
+	<li class="list-group-item" style="width:25%;">
+		<strong>Student number:</strong>
+		<%= @log.student_number %>
+	</li>
+	<li class="list-group-item" style="width:25%;">
+		<strong>Period:</strong>
+		<%= @log.period %>
+	</li>
+	<li class="list-group-item" style="width:25%;">
+		<strong>Time:</strong>
+		<%= @log.time %>
+	</li>
+	<li class="list-group-item" style="width:25%;">
+		<strong>Activity:</strong>
+		<%= @log.activity %>
+	</li>
+	<li class="list-group-item" style="width:25%;">
+		<strong>School Activity:</strong>
+		<%= @log.school_activity %>
+	</li>
+	<li class="list-group-item" style="width:25%;">
+		<strong>Adult Name:</strong>
+		<%= @log.adult %>
+	</li>
+</ul>
 
 <%= link_to 'Edit', edit_log_path(@log), class: "btn btn-warning" %>
 <%= link_to 'Back', logs_path, class: "btn btn-danger", style: "margin-left:2%;" %>
