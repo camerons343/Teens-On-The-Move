@@ -1,5 +1,5 @@
 class LogsController < ApplicationController
-  load_and_authorize_resource only: [:edit, :update, :destroy]
+  load_and_authorize_resource only: [:edit, :update, :destroy, :destroy_all]
   before_action :set_log, only: [:show, :edit, :update, :destroy]
   # GET /logs
   # GET /logs.json
@@ -11,6 +11,10 @@ class LogsController < ApplicationController
   # GET /logs/1.json
   def show
   end
+  
+  def total
+    @period_time = Log.group(:period).sum(:time).to_a
+  end 
 
   # GET /logs/new
   def new
@@ -28,7 +32,7 @@ class LogsController < ApplicationController
 
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
+        format.html { redirect_to @log, notice: 'Log-in was successfull.' }
         format.json { render action: 'show', status: :created, location: @log }
       else
         format.html { render action: 'new' }
@@ -59,6 +63,11 @@ class LogsController < ApplicationController
       format.html { redirect_to logs_url }
       format.json { head :no_content }
     end
+  end
+  
+  def delete_all
+	Log.destroy_all
+	  redirect_to root_path, notice: 'All logs have been successfully removed.'
   end
 
   private
