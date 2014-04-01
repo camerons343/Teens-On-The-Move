@@ -2,7 +2,12 @@
 	<h1>Student Log-ins</h1>
 </div>
 
-<%= link_to 'Create new Log-in', new_log_path, class: "btn btn-success" %>
+<%= link_to 'Create new Log-in', new_log_path, class: "btn btn-success", style: "pull-left" %>
+<% if user_signed_in? %>
+ <%= button_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %> 
+<% else %>
+ <%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
+<% end %>
 
 <table class="table">
   <thead>
