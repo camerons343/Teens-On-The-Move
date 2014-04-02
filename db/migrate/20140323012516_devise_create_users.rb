@@ -4,6 +4,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
 	# Create a default user
 	if direction == :up
 		admin = User.new(
+      first_name: 'Cameron',
+      last_name: 'Smith',
+      profile_name: 'camerons343',
 			email: 'camerons343@gmail.com',
 			password: 'camscott',
 			role: 'admin',

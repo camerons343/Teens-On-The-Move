@@ -1,6 +1,8 @@
 class Log < ActiveRecord::Base
-	validates_presence_of :name, :student_number, :time, :activity, :class, :adult, :message => "can't be empty!"
-	validates_numericality_of :student_number, :message => "must be a number!"
-	validates_numericality_of :time, :message => "must be a number in minutes format!"
-	validates :student_number, length: { is: 6 }
+  validates :name, presence: true
+  validates :student_number, presence: true, numericality: true, length: { is: 6 }
+  validates :time, numericality: true, :length => { :within => 1..120 }
+  validates :activity, :presence => { :message => "must not be blank!" }
+  validates :class, presence: true
+  validates :adult, :presence => { :message => "must not be blank!" }
 end
