@@ -11,17 +11,21 @@
 		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
 	<% end %>
 </div>
+
 <table class="table">
   <thead>
     <tr>
-     <th><center>Name</center></th>
-      <th><center>Student number</center></th>
-	  <th><center>Class Period</center></th>
+      <% if user_signed_in? %>
+        <th><center>Name</center></th>
+        <th><center>Student number</center></th>
+      <% end %>
+      <th><center>Class Period</center></th>
       <th><center>Time</center></th>
       <th><center>Activity</center></th>
-	  <th><center>School Related</center></th>
+      <th><center>School Related</center></th>
+      <th><center>Created At</center></th>
       <th></th>
-	  <th></th>
+      <th></th>
       <th><center><% if user_signed_in? %><%= @logs.count %> log-ins<%= button_to 'Delete All', delete_all_logs_path, method: :delete, :onclick => "return confirm( 'Are you sure you want to delete all log-ins? This is not reversible!' )", class: "btn btn-danger" %><% end %></center></th>
     </tr>
   </thead>
@@ -30,22 +34,24 @@
   <tbody class="table-striped">
     <% @logs.each do |log| %>
       <tr>
-        <td><center><b><% if user_signed_in? %><%= log.name %><% end %></b></center></td>
-        <td><center><% if user_signed_in? %><%= log.student_number %><% end %></center></td>
-		<td><center><%= log.period %></center></td>
+        <% if user_signed_in? %>
+          <td><center><b><%= log.name %></b></center></td>
+          <td><center><%= log.student_number %></center></td>
+        <% end %>
+        <td><center><%= log.period %></center></td>
         <td><center><%= log.time %></center></td>
         <td><center><%= log.activity %></center></td>
-		<td><center><%= log.school_activity %></center></td>
+        <td><center><%= log.school_activity %></center></td>
+        <td><center><%= log.created_at.strftime("%b %e, %Y") %></center></td>
 
-		<div class="meta">
-			<td><span class=""><center><% if user_signed_in? %><%= link_to 'Edit', edit_log_path(log), class: "btn btn-warning" %><% end %></center></span></td>
-			<td><span class=""><center><% if user_signed_in? %><%= link_to 'Show', log, class: "btn btn-info" %><% end %></center></span></td>
-			<td><span class=""><center><% if user_signed_in? %><%= button_to 'X', log, method: :delete, :onclick => "return confirm('Are you sure you want to delete this log?')", class: "btn btn-danger" %><% end %></center></span></td>
-		</div>
+        <div class="meta">
+          <td><span class=""><center><% if user_signed_in? %><%= link_to 'Edit', edit_log_path(log), class: "btn btn-warning" %><% end %></center></span></td>
+          <td><span class=""><center><% if user_signed_in? %><%= link_to 'Show', log, class: "btn btn-info" %><% end %></center></span></td>
+          <td><span class=""><center><% if user_signed_in? %><%= button_to 'X', log, method: :delete, :onclick => "return confirm('Are you sure you want to delete this log?')", class: "btn btn-danger" %><% end %></center></span></td>
+        </div>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
