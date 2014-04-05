@@ -8,7 +8,7 @@ class CreateLogs < ActiveRecord::Migration
       t.string :period
       t.string :adult
       t.boolean :school_activity
-      t.string :date_created
+      t.string :date_of_activity
       t.timestamps
       t.belongs_to :user
     end

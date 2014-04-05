@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140323012516) do
     t.string   "period"
     t.string   "adult"
     t.boolean  "school_activity"
-    t.string   "date_created"
+    t.string   "date_of_activity"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
