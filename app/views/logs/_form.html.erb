@@ -10,14 +10,42 @@
       </ul>
     </div>
   <% end %>
-
+  <script>
+    $(function() {
+      $( "#datepicker" ).datepicker();
+    });
+    
+    $(function() {
+      var availableTags = [
+        "Swimming",
+        "Running",
+        "Jogging",
+        "Football",
+        "Bowling",
+        "Basketball",
+        "Baseball",
+        "Softball",
+        "Tennis",
+        "Softball",
+        "Skate boarding",
+        "Long boarding",
+        "Bicycling",
+        "Wrestling",
+        "Golf",
+        "Gymnastics"
+      ];
+      $( "#tags" ).autocomplete({
+        source: availableTags
+      });
+    });
+  </script>
   <div class="field">
     <%= f.label :name %>: <strong>First, Last</strong><br>
-    <%= f.text_field :name, class: "form-group form-control", style: "width:25%" %>
+    <%= f.text_field :name, class: "form-group form-control", style: "width:25%", title: "Example: Brady, Alex" %>
   </div>
   <div class="field">
     <%= f.label :student_number %><br>
-    <%= f.text_field :student_number, class: "form-group form-control", style: "width:25%" %>
+    <%= f.text_field :student_number, class: "form-group form-control", style: "width:25%", title: "Example: 123456" %>
   </div>
   <div class="field">
 	<%= f.label :period %><br>
@@ -25,23 +53,23 @@
   </div>
   <div class="field">
     <%= f.label :time %>: <b>Minutes</b><br>
-    <%= f.text_field :time, class: "form-group form-control", style: "width:25%" %>
+    <%= f.text_field :time, class: "form-group form-control", style: "width:25%", title: "Example: 60" %>
   </div>
   <div class="field">
     <%= f.label :date_of_activity %><br>
-    <%= f.text_field :date_of_activity, class: "form-group form-control", style: "width:25%", id: "datepicker" %>
+    <%= f.text_field :date_of_activity, class: "form-group form-control", style: "width:25%", id: "datepicker", title: "Select a date on the calender" %>
   </div>
   <div class="field">
     <%= f.label :activity %><br>
-    <%= f.text_field :activity, class: "form-group form-control", style: "width:25%" %>
+    <%= f.text_field :activity, class: "form-group form-control", style: "width:25%", id: "tags", title: "Example: Running" %>
   </div>
   <div class="field">
 	<%= f.label :school_activity %><br>
-	<%= f.select :school_activity, [true,false], {}, { :class => 'form-control', :style => 'width:25%; margin-bottom:12px;' } %>
+	<%= f.select :school_activity, [true,false], {}, { :class => 'form-control', :style => 'width:25%; margin-bottom:12px;', title: "Select true of false" } %>
   </div>
   <div class="field">
 	<%= f.label :adult %> <strong>Name</strong><br>
-	<%= f.text_field :adult, class: "form-group form-control", style: "width:25%;" %>
+	<%= f.text_field :adult, class: "form-group form-control", style: "width:25%;", title: "Example: Amber" %>
   </div>
   <div class="actions" style="float:left;">
     <%= f.submit 'Log-in', :class=> 'btn btn-success' %>
