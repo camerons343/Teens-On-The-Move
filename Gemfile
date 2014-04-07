@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'cancan'
 gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
