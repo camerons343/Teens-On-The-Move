@@ -78,6 +78,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:name, :student_number, :period, :time, :activity, :adult, :school_activity)
+      params.require(:log).permit(:name, :student_number, :period, :time, :date_of_activity, :activity, :adult, :school_activity)
     end
 end

@@ -5,11 +5,12 @@ class CreateLogs < ActiveRecord::Migration
       t.integer :student_number
       t.string :time
       t.string :activity
-	  t.string :period
-	  t.string :adult
-	  t.boolean :school_activity
-
+      t.string :period
+      t.string :adult
+      t.boolean :school_activity
+      t.string :date_of_activity
       t.timestamps
+      t.belongs_to :user
     end
   end
 end
