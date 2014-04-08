@@ -16,4 +16,7 @@
 //= require jquery.ui.autocomplete
 //= require jquery.ui.tooltip
 //= require bootstrap
+//= require underscore.min
+//= require calendar.min
+//= require knockout-bootstrap.min
 //= require logs

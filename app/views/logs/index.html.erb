@@ -11,7 +11,7 @@
 		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
 	<% end %>
 </div>
-
+<div id="calendar"></div>
 <table class="table">
   <thead>
     <tr>
@@ -32,7 +32,6 @@
     </tr>
   </thead>
   
-
   <tbody class="table-striped">
     <% @logs.each do |log| %>
       <tr>
@@ -45,7 +44,7 @@
         <td><center><%= log.activity %></center></td>
         <td><center><%= log.school_activity %></center></td>
         <% if user_signed_in? %>
-          <td><center><%= log.created_at.strftime("%b %e, %Y") %></center></td>
+        <td><center><%= log.created_at.strftime("%b %e, %Y") %></center></td>
           
           <!-- Managing Code !-->
           <div class="meta">
