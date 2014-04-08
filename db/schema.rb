@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140323012516) do
     t.string   "first_name",          default: "", null: false
     t.string   "last_name",           default: "", null: false
     t.string   "profile_name",        default: "", null: false
+    t.string   "student_number",      default: "", null: false
     t.string   "role",                default: "", null: false
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",       default: 0,  null: false

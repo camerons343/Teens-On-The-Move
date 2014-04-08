@@ -15,8 +15,10 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.autocomplete
 //= require jquery.ui.tooltip
-//= require bootstrap
+//= require bootstrap.min
+//= require d3
 //= require underscore.min
 //= require calendar.min
 //= require knockout-bootstrap.min
 //= require logs
+

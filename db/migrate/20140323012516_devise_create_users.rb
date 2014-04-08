@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       first_name: 'Cameron',
       last_name: 'Smith',
       profile_name: 'camerons343',
+      student_number: '110021',
 			email: 'camerons343@gmail.com',
 			password: 'camscott',
 			role: 'admin',
@@ -24,6 +25,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
       t.string :profile_name, null: false, default: ""
+      t.string :student_number, null: false, default: ""
       
 	    ## Roles
 	    t.string :role,				null: false, default: ""

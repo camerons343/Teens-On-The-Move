@@ -9,7 +9,6 @@ gem 'devise'
 gem 'cancan'
 gem 'jquery-ui-rails'
 gem 'jquery-ui-themes'
-gem 'twitter-bootstrap-calendar'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

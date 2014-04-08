@@ -7,6 +7,11 @@ Teens::Application.routes.draw do
 	  delete :delete_all
     end
   end
+  resources :users, only: [] do
+    member do
+      get :logs
+    end
+  end
 
   root to: 'logs#index'
 end
