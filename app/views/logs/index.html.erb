@@ -15,7 +15,7 @@
 <table class="table">
   <thead>
     <tr>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && (current_user.role? :admin) %>
         <th><center>Name</center></th>
         <th><center>Student number</center></th>
       <% end %>
@@ -23,7 +23,7 @@
       <th><center>Time</center></th>
       <th><center>Activity</center></th>
       <th><center>School Related</center></th>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && (current_user.role? :admin) %>
         <th><center>Created At</center></th>
         <th></th>
         <th></th>
@@ -31,11 +31,11 @@
       <% end %>
     </tr>
   </thead>
-  
+
   <tbody class="table-striped">
     <% @logs.each do |log| %>
       <tr>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && ( current_user.role? :admin) %>
           <td><center><b><%= log.name %></b></center></td>
           <td><center><%= log.student_number %></center></td>
         <% end %>
@@ -43,7 +43,7 @@
         <td><center><%= log.time %></center></td>
         <td><center><%= log.activity %></center></td>
         <td><center><%= log.school_activity %></center></td>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && (current_user.role? :admin) %>
         <td><center><%= log.created_at.strftime("%b %e, %Y") %></center></td>
           
           <!-- Managing Code !-->

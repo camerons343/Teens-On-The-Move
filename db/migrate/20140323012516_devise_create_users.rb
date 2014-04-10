@@ -27,8 +27,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :profile_name, null: false, default: ""
       t.string :student_number, null: false, default: ""
       
+      
 	    ## Roles
-	    t.string :role,				null: false, default: ""
+	    t.string :role, null: false, default: "student"
 	  
       ## Recoverable
       ##t.string   :reset_password_token

@@ -5,14 +5,24 @@
 </div>
 <div id="calendar"></div>
 
-<table>
+<table class="table">
+  <thead>
+    <tr>
+      <th><center>Class Period</center></th>
+      <th><center>Time</center></th>
+      <th><center>Activity</center></th>
+      <th><center>School Related</center></th>
+      <% if user_signed_in? %>
+        <th><center>Created At</center></th>
+        <th></th>
+        <th><center><%= @logs.count %> log-ins<%= button_to 'Delete All', delete_all_logs_path, method: :delete, :onclick => "return confirm( 'Are you sure you want to delete all log-ins? This is not reversible!' )", class: "btn btn-danger" %></center></th>
+      <% end %>
+    </tr>
+  </thead>
+
   <tbody class="table-striped">
     <% @logs.each do |log| %>
       <tr>
-        <% if user_signed_in? %>
-          <td><center><b><%= log.name %></b></center></td>
-          <td><center><%= log.student_number %></center></td>
-        <% end %>
         <td><center><%= log.period %></center></td>
         <td><center><%= log.time %></center></td>
         <td><center><%= log.activity %></center></td>
@@ -23,7 +33,6 @@
           <!-- Managing Code !-->
           <div class="meta">
             <td><span class=""><center><%= link_to 'Edit', edit_log_path(log), class: "btn btn-warning" %></center></span></td>
-            <td><span class=""><center><%= link_to 'Show', log, class: "btn btn-info" %></center></span></td>
             <td><span class=""><center><%= button_to 'X', log, method: :delete, :onclick => "return confirm('Are you sure you want to delete this log?')", class: "btn btn-danger" %></center></span></td>
           </div>
         <% end %>
