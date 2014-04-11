@@ -18,11 +18,11 @@
   </script>
   <div class="field">
     <%= f.label :name %>: <strong>First, Last</strong><br>
-    <%= f.text_field :name, class: "form-group form-control", style: "width:25%", title: "Example: Brady, Alex" %>
+    <%= f.text_field :name, value: "#{ current_user ? current_user.first_name : ''}, #{ current_user ? current_user.last_name : ''}", class: "form-group form-control", style: "width:25%", title: "Example: Brady, Alex" %>
   </div>
   <div class="field">
     <%= f.label :student_number %><br>
-    <%= f.text_field :student_number, class: "form-group form-control", style: "width:25%", title: "Example: 123456" %>
+    <%= f.text_field :student_number, value: "#{ current_user ? current_user.student_number : ''}", class: "form-group form-control", style: "width:25%", title: "Example: 123456" %>
   </div>
   <div class="field">
 	<%= f.label :period %><br>
@@ -48,7 +48,7 @@
 	<%= f.label :adult %> <strong>Name</strong><br>
 	<%= f.text_field :adult, class: "form-group form-control", style: "width:25%;", title: "Example: Amber" %>
   </div>
-  <div class="actions" style="float:left;">
-    <%= f.submit 'Log-in', :class=> 'btn btn-success' %>
+  <div class="actions" style="width:25%;">
+    <%= f.submit 'Log-in', :class=> 'btn btn-success', style: "width:100%;" %>
   </div>
 <% end %>
