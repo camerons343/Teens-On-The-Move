@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20140323012516) do
     t.string   "adult"
     t.boolean  "school_activity"
     t.string   "date_of_activity"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

@@ -49,3 +49,11 @@ prepare_calendar = () ->
   $('.btn-group button[data-calendar-nav]').each () ->
     $(this).click () ->
       calendar.navigate($(this).data('calendar-nav'))
+      
+jQuery ->
+  $('#logs').dataTable
+    sPaginationType: "full_numbers"
+    bJQueryUI: true
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#logs').data('source')

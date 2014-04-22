@@ -29,7 +29,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       
 	    ## Roles
-	    t.string :role, null: false, default: "student"
+	    t.string :role, null: false, default: ""
 	  
       ## Recoverable
       ##t.string   :reset_password_token

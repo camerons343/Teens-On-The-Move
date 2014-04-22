@@ -11,8 +11,9 @@
 		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
 	<% end %>
 </div>
-<div class="container" style="margin-top:20px;">
+<br/>
+<div class="container" style="margin-top:20px; clear:both;">
 <% @period_time.each do |time| %>
-    <div><b><%= time[0] %>:</b> <%= time[1] %></div>
+    <div ><b id="info"><%= time[0] %>:</b> <%= time[1] %></div>
 <% end %>
 </div>

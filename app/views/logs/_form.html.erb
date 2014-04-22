@@ -14,27 +14,36 @@
     $(function() {
       $( "#datepicker" ).datepicker();
     });
+    $('.field').tooltip(placement: 'right' trigger: 'hover focus');
     
   </script>
-  <div class="field">
-    <%= f.label :name %>: <strong>First, Last</strong><br>
-    <%= f.text_field :name, value: "#{ current_user ? current_user.first_name : ''}, #{ current_user ? current_user.last_name : ''}", class: "form-group form-control", style: "width:25%", title: "Example: Brady, Alex" %>
+  <div class="field" >
+    <%= f.label :name %><br>
+    <% if user_signed_in? %>
+      <%= f.text_field :name, value: "#{ current_user ? current_user.last_name : ''}, #{ current_user ? current_user.first_name : ''}", class: "form-group form-control", style: "width:25%;", title: "Example: Brady, Alex" %>
+    <% else %>
+      <%= f.text_field :name, placeholder: "Last, First", class: "form-group form-control", style: "width:25%;", title: "Example: Brady, Alex" %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :student_number %><br>
-    <%= f.text_field :student_number, value: "#{ current_user ? current_user.student_number : ''}", class: "form-group form-control", style: "width:25%", title: "Example: 123456" %>
+    <% if user_signed_in? %>
+      <%= f.text_field :student_number, value: "#{ current_user ? current_user.student_number : ''}", class: "form-group form-control", style: "width:25%;", title: "Example: 123456" %>
+    <% else %>
+      <%= f.text_field :student_number, placeholder: "123456", class: "form-group form-control", style: "width:25%;", title: "Example: 123456" %>
+    <% end %>
   </div>
   <div class="field">
 	<%= f.label :period %><br>
 	<%= f.select :period, ['1 Dungey','2 Dungey','3 Dungey','4 Dungey','5 Dungey','6 Dungey','','1 Huston','2 Huston','3 Huston','4 Huston','5 Huston','6 Huston','','1 Richard/Yriarte','2 Richard','3 Richard','4 Richard','5 Richard','6 Richard','7 Richard/Yriarte','','7 Napier', 'Other'], {}, { :class => 'form-control', :style => 'width:25%; margin-bottom:12px;' } %>
   </div>
   <div class="field">
-    <%= f.label :time %>: <b>Minutes</b><br>
-    <%= f.text_field :time, class: "form-group form-control", style: "width:25%", title: "Example: 60" %>
+    <%= f.label :time %><br>
+    <%= f.text_field :time, placeholder: "120", class: "form-group form-control", style: "width:25%", title: "Example: 60" %>
   </div>
   <div class="field">
     <%= f.label :date_of_activity %><br>
-    <%= f.text_field :date_of_activity, class: "form-group form-control", style: "width:25%", id: "datepicker", title: "Select a date on the calender" %>
+    <%= f.text_field :date_of_activity, palceholder: Time.now.strftime("%m/%d/%Y"), class: "form-group form-control", style: "width:25%", id: "datepicker", title: "Select a date on the calender" %>
   </div>
   <div class="field">
     <%= f.label :activity %><br>
@@ -45,8 +54,8 @@
 	<%= f.select :school_activity, [true,false], {}, { :class => 'form-control', :style => 'width:25%; margin-bottom:12px;', title: "Select true of false" } %>
   </div>
   <div class="field">
-	<%= f.label :adult %> <strong>Name</strong><br>
-	<%= f.text_field :adult, class: "form-group form-control", style: "width:25%;", title: "Example: Amber" %>
+	<%= f.label :adult %><br>
+	<%= f.text_field :adult, placeholder: "Tom", class: "form-group form-control", style: "width:25%;", title: "Example: Amber" %>
   </div>
   <div class="actions" style="width:25%;">
     <%= f.submit 'Log-in', :class=> 'btn btn-success', style: "width:100%;" %>

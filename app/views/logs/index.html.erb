@@ -8,11 +8,12 @@
 	<% if user_signed_in? %>
 		<%= button_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %>
 	<% else %>
-		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
+		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left", style: "margin-right:10px;" %>
+    <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-info pull-left", style: "margin-right:10px;" %>
 	<% end %>
 </div>
 
-<table class="table">
+<table id="logs" class="display" data-source="<%= logs_url(format: "json") %>" >
   <thead>
     <tr>
       <% if user_signed_in? && (current_user.role? :admin) %>
@@ -58,12 +59,14 @@
   </tbody>
 </table>
 <br>
+<!--
 <div class="btn-group">
  <button class="btn btn-primary" data-calendar-nav="prev">&lt;&lt; Prev</button>
  <button class="btn" data-calendar-nav="today">Today</button>
  <button class="btn btn-primary" data-calendar-nav="next">Next &gt;&gt;</button>
 </div>
 <div id="calendar"></div>
+-->
 <% if user_signed_in? %>
 <%= link_to 'Profile', logs_user_path(current_user) %>
 <% end %>

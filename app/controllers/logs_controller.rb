@@ -5,6 +5,10 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = Log.all
+    respond_to do |format|
+      format.html
+      format.json { render json: LogsDatatable.new(view_context) }
+    end
   end
 
   # GET /logs/1

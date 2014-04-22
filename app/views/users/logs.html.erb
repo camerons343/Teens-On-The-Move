@@ -1,6 +1,7 @@
 <div class="page-header">
   <h2> Your logs </h2>
 </div>
+<%= link_to 'Create new Log-in', new_log_path, class: "btn btn-success pull-left", style: "margin-right:10px;" %>
 <table class="table">
   <thead>
     <tr>
@@ -36,9 +37,3 @@
     <% end %>
   </tbody>
 </table>
-<div class="btn-group">
- <button class="btn btn-primary" data-calendar-nav="prev">&lt;&lt; Prev</button>
- <button class="btn" data-calendar-nav="today">Today</button>
- <button class="btn btn-primary" data-calendar-nav="next">Next &gt;&gt;</button>
-</div>
-<div id="calendar"></div>
