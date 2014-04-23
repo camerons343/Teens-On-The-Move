@@ -2,7 +2,6 @@
 	<h1>Student Log-ins</h1>
 </div>
 
-<<<<<<< HEAD
 <%= link_to 'Create new Log-in', new_log_path, class: "btn btn-success", style: "pull-left" %>
 <% if user_signed_in? %>
  <%= button_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %> 
@@ -10,7 +9,6 @@
  <%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
 <% end %>
 
-=======
 <%= link_to 'Create new Log-in', new_log_path, class: "btn btn-success pull-left", style: "margin-right:10px;" %>
 <%= link_to 'Class Totals', total_logs_path, class: "btn btn-warning pull-left", style: "margin-right:10px;" %>
 <div class="sign_in/out">
@@ -20,7 +18,6 @@
 		<%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary pull-left" %>
 	<% end %>
 </div>
->>>>>>> e6ec2a676cd65d8be77863778d44ab1685e5b662
 <table class="table">
   <thead>
     <tr>
