@@ -1,4 +1,5 @@
 Teens::Application.routes.draw do
+  root to: 'logs#index'
   devise_for :users
   resources :logs do
     collection do
@@ -6,6 +7,4 @@ Teens::Application.routes.draw do
 	  delete :delete_all
     end
   end
-
-  root to: 'logs#index'
 end
