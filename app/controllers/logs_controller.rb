@@ -67,7 +67,7 @@ class LogsController < ApplicationController
   
   def delete_all
 	Log.destroy_all
-	  redirect_to root_path, notice: 'All logs have been successfully removed.'
+	  redirect_to root_path, notice: 'The Log database has been successfully wiped.'
   end
 
   private
