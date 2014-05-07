@@ -1,4 +1,5 @@
 Teens::Application.routes.draw do
+  root to: 'logs#index'
   devise_for :admins
   devise_for :users
   resources :logs do
@@ -12,6 +13,4 @@ Teens::Application.routes.draw do
       get :logs
     end
   end
-
-  root to: 'logs#index'
 end
