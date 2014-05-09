@@ -4,14 +4,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
 	# Create a default user
 	if direction == :up
 		admin = User.new(
-      first_name: 'Cameron',
-      last_name: 'Smith',
-      profile_name: 'camerons343',
-      student_number: '110021',
-			email: 'camerons343@gmail.com',
-			password: 'camscott',
-			role: 'admin',
-		   )
+            first_name: 'Cameron',
+            last_name: 'Smith',
+            profile_name: 'camerons343',
+            student_number: '110021',
+            email: 'camerons343@gmail.com',
+            password: 'camscott',
+            role: 'admin',
+        )
 			admin.save!
 		end
 	end
@@ -27,13 +27,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :profile_name, null: false, default: ""
       t.string :student_number, null: false, default: ""
       
-      
-	    ## Roles
-	    t.string :role, null: false, default: ""
+       ## Roles
+       t.string :role, null: false, default: "student"
 	  
       ## Recoverable
-      ##t.string   :reset_password_token
-      ##t.datetime :reset_password_sent_at
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
 
       ## Rememberable
       t.datetime :remember_created_at
@@ -60,6 +59,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email,                unique: true
+    add_index :users, :email, :student_number,                unique: true
   end
 end
