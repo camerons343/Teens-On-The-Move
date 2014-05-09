@@ -5,8 +5,6 @@ class Ability
     user ||= User.new #Guest user
     if user.role? :admin
       can :manage, :all
-     else
-      can :manage, :all
     end
   end
 end
