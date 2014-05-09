@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	ROLES = %w(admin)
+	ROLES = %w[admin moderator author banned]
+	
 	  def role?(base_role)
 		return false unless role.present?
 			ROLES.index(base_role.to_s) >= ROLES.index(role)
@@ -7,6 +8,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, 
-         :rememberable, :trackable, :validatable
+         :rememberable, :trackable, :validatable, :confirmable,
+         :lockable, :timeoutable
 
 end
