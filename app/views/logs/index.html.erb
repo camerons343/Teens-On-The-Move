@@ -44,7 +44,7 @@
         <td><center><%= log.time %></center></td>
         <td><center><%= log.activity %></center></td>
         <td><center><%= log.school_activity %></center></td>
-        <% if user_signed_in? && (current_user.role? :admin) %>
+        <% if user_signed_in? && (current_user.role? :admin) || (current_user.student_number? :student_number) %>
         <td><center><%= log.created_at.strftime("%b %e, %Y") %></center></td>
           
           <!-- Managing Code !-->
